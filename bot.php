@@ -1,6 +1,5 @@
 <?php
-//$proxy = 'velodrome.usefixie.com:80';
-//$proxyauth = 'http://fixie:576wxxmDxvm4BbS';
+
 $access_token = 'xxxx';
 
 // Get POST body content
