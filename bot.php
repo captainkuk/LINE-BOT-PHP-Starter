@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 			$text2='';
 			
 			// Build message to reply back
-			if (substr($text,0,4)=='mysql'){
+			if (substr($text,0,5)=='mysql'){
 				$host = "us-cdbr-iron-east-05.cleardb.net";
 				$username = "b0188175a00d8f";
 				$password = "6c89afbb";
