@@ -17,15 +17,36 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			$text2='';
+			
 			// Build message to reply back
-			if ($text=='สวัสดีครับ'){
-				$text2='สวัสดีครับคุณผู้ชาย';
-			}else if ($text=='สวัสดีค่ะ'){
-				$text2='สวัสดีครับคุณผู้หญิง';
+			if (substr($text,0,4)=='mysql'){
+				$host = "us-cdbr-iron-east-05.cleardb.net";
+				$username = "b0188175a00d8f";
+				$password = "6c89afbb";
+				$dbname = "heroku_285669661138a8d";
+				
+				if (!$con){
+					die("Connection failed:" . mysqli_connect_error());
+				}
+
+				$sql = "select col1,col2,col3 from tbl1";
+				$result = mysqli_query($con,$sql);
+
+				if(mysqli_num_rows($result)>0){
+					while($row = mysqli_fetch_assoc($result)){
+						$text2=$text2+$row['col1']."-".$row['col2']."-".$row['col3'];
+					}
+				}else{
+					$text2=$text;
+				}
+
+				mysqli_close($con);
+
 			}else{
-				$text2='ผมไม่รู้จักคุณ';
+				$text2=$text;
 			}
+			
 			$messages = [
 				'type' => 'text',
 				'text' => $text2
