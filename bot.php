@@ -82,7 +82,7 @@ if (!is_null($events['events'])) {
 			
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
 			$packetid=$event['message']['packageId'];
-			$stickerid=$event['message']['stickerId'];
+			$stickerid='sticker';//$event['message']['stickerId'];
 			
 			$messages = [
 				'type' => 'text',
