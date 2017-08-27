@@ -86,8 +86,9 @@ if (!is_null($events['events'])) {
 			$stickerid=$event['message']['stickerId'];
 			
 			$messages = [
-				'type' => 'text',
-				'text' => $stickerid.','.$packetid
+				'type' => 'sticker',
+				'packageId' => $packetid,
+				'stickerId' => $stickerid
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -110,7 +111,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			echo $result . "\r\n";
+			//echo $result . "\r\n";
 		}
 	}
 }
