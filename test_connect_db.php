@@ -1,8 +1,4 @@
-<html>
-<head>
-<title>ThaiCreate.Com</title>
-</head>
-<body>
+
 <?php
 
 $host = "us-cdbr-iron-east-05.cleardb.net";
@@ -20,6 +16,7 @@ else
 }
 
 mysql_close($objConnect);
+
+echo "55555";
 ?>
-</body>
-</html>
+
