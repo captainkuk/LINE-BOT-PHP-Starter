@@ -21,12 +21,12 @@ if (!is_null($events['events'])) {
 			
 			// Build message to reply back
 			if (substr($text,0,5)=='mysql'){
-				
+				$text2='mysql ready';
 				$host = "us-cdbr-iron-east-05.cleardb.net";
 				$username = "b0188175a00d8f";
 				$password = "6c89afbb";
 				$dbname = "heroku_285669661138a8d";
-				
+				/*
 				if (!$con){
 					die("Connection failed:" . mysqli_connect_error());
 					$text2='Connection failed';
@@ -44,7 +44,7 @@ if (!is_null($events['events'])) {
 				}
 
 				mysqli_close($con);
-
+				*/
 			}else{
 				$text2=$text;
 			}
