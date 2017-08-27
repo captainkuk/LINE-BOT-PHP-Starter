@@ -1,5 +1,5 @@
 <?php
-include "condb_mysql.php";
+include "connect_db";
 // Check connection
 if (!$con){
 	die("Connection failed:" . mysqli_connect_error());
