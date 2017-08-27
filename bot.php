@@ -81,7 +81,7 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 			
 		}else{
-			
+			$replyToken = $event['replyToken'];
 			$messages = [
 				'type' => 'text',
 				'text' => 'sticker'
