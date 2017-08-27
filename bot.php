@@ -80,11 +80,14 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 			
-		}else{
+		}else if ($event['type'] == 'message' && $event['message']['type'] == 'sticker'){
 			$replyToken = $event['replyToken'];
+			$packetid=$event['message']['packageId'];
+			$stickerid=$event['message']['stickerId'];
+			
 			$messages = [
 				'type' => 'text',
-				'text' => 'sticker'
+				'text' => $stickerid
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
