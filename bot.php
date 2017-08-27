@@ -90,7 +90,7 @@ if (!is_null($events['events'])) {
 			
 			function postMessage($token,$packet,$urlReply){
 				 $dataEncode = json_encode($packet);
-				 $headersOption = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+				 $headersOption = array('Content-Type: application/json', 'Authorization: Bearer ' . $token);
 				 $ch = curl_init($urlReply);
 				 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,’POST’);
 				 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -100,7 +100,7 @@ if (!is_null($events['events'])) {
 				 $result = curl_exec($ch);
 				 curl_close($ch);
 		    }
-			
+			/*
 			function getSticker($replyToken){
 				 $sticker = array(
 					‘type’ => ‘sticker’,
@@ -112,10 +112,20 @@ if (!is_null($events['events'])) {
 					‘messages’ => array($sticker),
 				 );
 				 return $packet;
-			}
+			}*/
 			
-			$packet1 = getSticker($item[‘replyToken’]);
-			postMessage($replyToken,$packet1,$url);
+			$messages = [
+				'type' => 'sticker',
+				'packageId' => '4',
+				'stickerId' => '300'
+			];
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			
+			//$packet1 = getSticker($item[‘replyToken’]);
+			postMessage($access_token,$data,$url);
  
 		}
 	}
