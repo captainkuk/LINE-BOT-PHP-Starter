@@ -90,7 +90,7 @@ if (!is_null($events['events'])) {
 			
 			function postMessage($token,$packet,$urlReply){
 				 $dataEncode = json_encode($packet);
-				 $headersOption = array(‘Content-Type: application/json’,’Authorization: Bearer ‘.$token);
+				 $headersOption = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 				 $ch = curl_init($urlReply);
 				 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,’POST’);
 				 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -114,8 +114,8 @@ if (!is_null($events['events'])) {
 				 return $packet;
 			}
 			
-			$packet = getSticker($item[‘replyToken’]);
-			postMessage($replyToken,$packet,$url);
+			$packet1 = getSticker($item[‘replyToken’]);
+			postMessage($replyToken,$packet1,$url);
  
 		}
 	}
