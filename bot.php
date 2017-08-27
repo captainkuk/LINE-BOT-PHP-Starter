@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 					die("Connection failed:" . mysqli_connect_error());
 					$text2='Connection failed';
 				}else{
-					$text2='mysql ready'.'<br>';
+					$text2='[mysql ready!]  ';
 				}
 				
 				$sql = "select col1,col2,col3 from tbl1";
