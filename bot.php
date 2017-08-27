@@ -35,7 +35,7 @@ if (!is_null($events['events'])) {
 				}else{
 					$text2='mysql ready'.'<br>';
 				}
-
+				
 				$sql = "select col1,col2,col3 from tbl1";
 				$result = mysqli_query($con,$sql);
 
@@ -48,7 +48,7 @@ if (!is_null($events['events'])) {
 				}
 
 				mysqli_close($con);
-				*/
+			
 			}else{
 				$text2=$text;
 			}
