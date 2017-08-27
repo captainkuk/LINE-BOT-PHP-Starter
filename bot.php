@@ -35,7 +35,7 @@ if (!is_null($events['events'])) {
 
 				if(mysqli_num_rows($result)>0){
 					while($row = mysqli_fetch_assoc($result)){
-						$text2=$text2+$row['col1']."-".$row['col2']."-".$row['col3'];
+						$text2=$text2.$row['col1']."-".$row['col2']."-".$row['col3'];
 					}
 				}else{
 					$text2=$text;
