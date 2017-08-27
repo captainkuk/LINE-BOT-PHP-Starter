@@ -21,6 +21,7 @@ if (!is_null($events['events'])) {
 			
 			// Build message to reply back
 			if (substr($text,0,5)=='mysql'){
+				
 				$host = "us-cdbr-iron-east-05.cleardb.net";
 				$username = "b0188175a00d8f";
 				$password = "6c89afbb";
@@ -28,6 +29,7 @@ if (!is_null($events['events'])) {
 				
 				if (!$con){
 					die("Connection failed:" . mysqli_connect_error());
+					$text2='Connection failed';
 				}
 
 				$sql = "select col1,col2,col3 from tbl1";
