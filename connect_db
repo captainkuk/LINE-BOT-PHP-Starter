@@ -1,15 +1,21 @@
 <?php
-/*
-$host = "us-cdbr-iron-east-05.cleardb.net";
-$username = "b0188175a00d8f";
-$password = "6c89afbb";
-$dbname = "heroku_285669661138a8d";*?
+include "condb_mysql.php";
+// Check connection
+if (!$con){
+	die("Connection failed:" . mysqli_connect_error());
+}
 
-$host = "35.194.222.91";
-$username = "root";
-$password = "iamcaptainkuk";
-$dbname = "captain_bot_db1";
+$sql = "select col1,col2,col3 from tbl1";
+$result = mysqli_query($con,$sql);
 
-$con = mysqli_connect($host,$username,$password);
+if(mysqli_num_rows($result)>0){
+	while($row = mysqli_fetch_assoc($result)){
+		echo "value1 : => ".$row["col1"]." ,value2 : => ".$row["col2"].
+		" ,value3 : => ".$row["col3"];
+	}
+}else{
+	echo "no result!";
+}
 
+mysqli_close($con);
 ?>
